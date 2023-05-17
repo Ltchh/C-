@@ -1,0 +1,5 @@
+Microsoft Visual Studio\2022\Community\Common7\IDE\VC\VCProjectItems
+
+newc++file.cpp
+
+
