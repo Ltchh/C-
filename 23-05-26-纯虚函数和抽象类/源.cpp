@@ -19,6 +19,10 @@ using namespace std;
 class MyClass
 {
 public:
+	MyClass() {
+		cout << "MyClass构造函数" << endl;
+	}
+
 	virtual void func() = 0;
 	//这个类只要有一个纯虚函数,这个类称为抽象类
 	//1.无法实例华对象
@@ -29,6 +33,10 @@ public:
 public:
 	int a;
 	string cha;
+
+	~MyClass() {
+		cout << "myclass析构函数" << endl;
+	}
 private:
 };
 
