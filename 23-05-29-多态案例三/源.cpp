@@ -13,6 +13,7 @@ class Cpu {
 public:
 	//抽象的计算的函数
 	virtual void calcula() = 0; //纯虚函数
+	
 };
 
 class Gpu {
@@ -41,6 +42,20 @@ public:
 		m_cpu->calcula();
 		m_gpu->disolay();
 		m_mem->storage();
+	}
+	~Computer() {
+		if (m_cpu != NULL) {
+			delete m_cpu;
+			m_cpu = NULL;
+		}
+		if (m_gpu != NULL) {
+			delete m_gpu;
+			m_gpu = NULL;
+		}
+		if (m_mem != NULL) {
+			delete m_mem;
+			m_mem = NULL;
+		}
 	}
 
 
@@ -77,38 +92,55 @@ public:
 class lenovo_cpu :public Cpu {//cpu
 public:
 	void calcula() {
-		cout << "intel->cpu开始运算" << endl;
+		cout << "lenovo->cpu开始运算" << endl;
 	}
 };
 
 class lenovo_gpu :public Gpu {//显卡
 public:
 	void disolay() {
-		cout << "intel->gpu开始显示" << endl;
+		cout << "lenovo->gpu开始显示" << endl;
 	}
 };
 
 class lenovo_memroy :public Memory {//内存条
 public:
-	void storage() {
-		cout << "intel->memory开始存储" << endl;
+	void storage() { 
+		cout << "lenovo->memory开始存储" << endl;
 	}
 };
 
 void test01() {
 	Cpu* Intel_Cpu = new intel_cpu;
 	Gpu* Intel_Gpu = new intel_gpu;
-	Memory* Intel_mem = new intel_memroy;
+	Memory* Intel_Mem = new intel_memroy;
 
-	//创建一台电脑
-	Computer * computer=new Computer(inte)
+	//创建第一台电脑
+	Computer* computer1 = new Computer(Intel_Cpu,	 Intel_Gpu,    Intel_Mem);//上面的4行和下面的1行是相等的
+	//									||				||				||
+	//Computer* computer1 = new Computer(new intel_cpu,new intel_gpu,new intel_memroy);
+	
+	computer1->work();
+	delete computer1;
+
+	cout << "--------------------------------------" << endl;
+
+	Cpu* Lenovo_Cpu = new lenovo_cpu;
+	Gpu* Lenovo_Gpu = new lenovo_gpu;
+	Memory* Lenovo_Mem = new lenovo_memroy;
+
+	//创建第二台
+	Computer* computer2 = new Computer(Lenovo_Cpu,	   Lenovo_Gpu,		Lenovo_Mem);//上面的4行和下面的1行是相等的
+	//									||				||					||
+	//Computer *computer2 = new Computer(new lenovo_cpu, new lenovo_gpu, new lenovo_memroy);
+	computer2->work();
+	delete computer2;
+	computer2 = NULL;
 }
 
 int main() {
 
 	test01();
-
-
 
 	system("pause");
 	return 0;
