@@ -9,7 +9,7 @@ class Employee:public Worker
 {
 public:
 
-	Employee(int id, string name, int number,string duty);//构造函数
+	Employee(int id, string name, string number,string duty);//构造函数
 	//行为:
 	//显示个人信息
 	virtual void showInfo();//纯虚函数

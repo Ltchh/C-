@@ -10,25 +10,25 @@ class Worker
 {
 public:
 //行为:
-	//显示个人信息
-	virtual void showInfo() = 0;//纯虚函数
+	
+	virtual void showInfo() = 0;//纯虚函数//显示个人信息
 
-	//获取岗位名称
-	virtual string getDeptName() = 0;//纯虚函数
+	
+	virtual string getDeptName() = 0;//纯虚函数//获取岗位名称
 
 
 //属性:
-	//职工的编号
-	int m_id;
+	
+	int m_id;//职工的编号
 
-	//职工姓名
-	string m_name;
+	
+	string m_name;//职工姓名
 
-	//部门编号
-	int m_number;
+	
+	string m_number;//部门编号
 
-	//岗位职责
-	string m_duty;
+	
+	string m_duty;//岗位职责
 
 private:
 
