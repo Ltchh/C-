@@ -42,6 +42,7 @@ int main() {
 	int num;
 	while (true)
 	{
+		//case语句过长需要加上->{}
 		//调用管理菜单的成员函数
 		wm.Show_Menu();
 		cout << "请选择:";
@@ -51,16 +52,16 @@ int main() {
 		case ADD:	wm.Add_Emp();
 			break;
 
-		case SHOW:
+		case SHOW: wm.show_Emp();
 			break;
 
-		case DELETE:
+		case DELETE:wm.delete_Emp();
 			break;
 
-		case EDIT:
+		case EDIT:wm.Mod_Emp();
 			break;
 
-		case LOOK_UP:
+		case LOOK_UP:wm.Look_Emp();
 			break;
 
 		case SORT:
